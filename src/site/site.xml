@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<bannerLeft>
+		<name>Simple HTTP Server</name>
+		<src>http://maven.apache.org/images/apache-maven-project.png</src>
+		<href>http://maven.apache.org/</href>
+	</bannerLeft>
+	<bannerRight>
+		<src>http://maven.apache.org/images/maven-small.gif</src>
+	</bannerRight>
+	<body>
+		<links>
+			<item name="Maven" href="http://maven.apache.org/" />
+			<item name="Apache" href="http://www.apache.org/" />
+		</links>
+
+
+		<menu name="The Simple HTTP Server project">
+			<item name="Readme" href="/readme.html" />
+		</menu>
+
+
+		${reports}
+
+
+	</body>
+</project>
+

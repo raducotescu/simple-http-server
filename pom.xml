@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cotescu.radu</groupId>
+	<artifactId>simple-http-server</artifactId>
+	<version>0.0.1</version>
+	<name>Simple Http Server</name>
+	<description>This project provides a simple multi-threaded HTTP server</description>
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>LICENSE</url>
+			<distribution>repo</distribution>
+			<comments>This project uses a MIT licensing model.</comments>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<id>radu</id>
+			<name>Radu Cotescu</name>
+			<email>radu@cotescu.com</email>
+			<url>http://radu.cotescu.com</url>
+			<timezone>EET</timezone>
+			<roles>
+				<role>Software Developer</role>
+			</roles>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:git://aws.radu.cotescu.com/simple-http-server.git</connection>
+		<developerConnection>scm:git:gitosis@aws.radu.cotescu.com:simple-http-server.git</developerConnection>
+	</scm>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<fork>true</fork>
+					<compilerArgument>-Xlint" "-Xlint:-path</compilerArgument>
+					<source>1.6</source>
+					<target>1.6</target>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass>com.cotescu.radu.http.server.HTTPServer</mainClass>
+						</manifest>
+					</archive>
+					<finalName>${project.artifactId}-${project.version}</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<id>cotescu.com.snapshots</id>
+			<name>cotescu.com.snapshots</name>
+			<url>http://radu.cotescu.com/maven2/snapshots</url>
+		</repository>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>cotescu.com.releases</id>
+			<name>cotescu.com.releases</name>
+			<url>http://radu.cotescu.com/maven2/releases</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>com.cotescu.radu</groupId>
+			<artifactId>commons</artifactId>
+			<version>0.0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+	</dependencies>
+</project>
